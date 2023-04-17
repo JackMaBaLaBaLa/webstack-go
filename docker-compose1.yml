@@ -1,0 +1,47 @@
+# 去除mysql(使用远程已存在的mysql)、grafana、prometheus、loki、
+version: "3.8"
+
+x-healthcheck-defaults: &healthcheck_defaults
+  interval: 10s  # 间隔
+  timeout: 5s  # 超时
+  retries: 5  # 连续失败次数
+  start_period: 10s # 初始化时间
+
+services:
+
+  webstack-go-service:
+    container_name: webstack-go-service
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    ports:
+      - "9999:9999"
+    volumes:
+      - ./configs:/opt/configs
+      - ./logs/:/opt/logs/
+    networks:
+      - webstack-go
+    healthcheck:
+      test: "/bin/netstat -anpt|grep 9999"
+      <<: *healthcheck_defaults
+    depends_on:
+      webstack-go-redis:
+        condition: service_healthy
+
+
+  webstack-go-redis:
+    image: redis:6.2.4
+    container_name: webstack-go-redis
+    command: redis-server --requirepass 123456
+    ports:
+      - "6379:6379"
+    networks:
+      - webstack-go
+    healthcheck:
+      test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
+      <<: *healthcheck_defaults
+
+
+networks:
+  webstack-go:
+    driver: bridge
