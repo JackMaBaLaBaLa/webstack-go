@@ -1,6 +1,6 @@
-# ------------------去除mysql、grafana、prometheus、loki、promtail，仅保留webstack-go-service和redis-----------------------------
+# ------------------去除mysql、grafana、prometheus、loki、promtail，仅保留webstack-go-service和redis---------------------------------
 # ------------------mysql使用远程已存在的库，grafana和prometheus使用现成的或者不用，不影响功能。--------------------------------------
-# ------------------mysql配置需要更改/webstack-go/configs/docker_configs.toml----------------------------------------------------
+# ------------------mysql配置需要更改/webstack-go/configs/docker_configs.toml--------------------------------------------------------
 
 version: "3.8"
 
