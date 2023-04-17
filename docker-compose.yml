@@ -41,7 +41,7 @@ services:
       MYSQL_ROOT_HOST: "%"
       MYSQL_ROOT_PASSWORD: 123456
     ports:
-      - "3305:3306"
+      - "3306:3306"
     networks:
       - webstack-go
     healthcheck:
@@ -54,7 +54,7 @@ services:
     container_name: webstack-go-redis
     command: redis-server --requirepass 123456
     ports:
-      - "6378:6379"
+      - "6379:6379"
     networks:
       - webstack-go
     healthcheck:
