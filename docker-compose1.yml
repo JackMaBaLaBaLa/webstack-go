@@ -1,4 +1,6 @@
-# 去除mysql(使用远程已存在的mysql)、grafana、prometheus、loki、
+# 去除mysql、grafana、prometheus、loki、promtail，仅保留webstack-go-service和redis
+# mysql使用远程已存在，grafana和prometheus使用现成的或者不用，不影响功能。
+# mysql配置需要更改
 version: "3.8"
 
 x-healthcheck-defaults: &healthcheck_defaults
