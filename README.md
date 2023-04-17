@@ -59,7 +59,9 @@
     eaaac671f0d5   redis:6.2.4                       "docker-entrypoint.s…"   6 hours ago     Up 37 seconds (healthy)   0.0.0.0:6378->6379/tcp              webstack-go-redis
     ```
     3.配置项目，打开以下链接
+    
      http://ip:9999/install
+     
      修改redis和mysql端口，以及如果mysql没有对应的库，需要先手动创建库
      
 ## 效果图
