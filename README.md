@@ -58,8 +58,10 @@
     fd7ccf68ebd2   mysql/mysql-server:5.7            "/entrypoint.sh mysq…"   6 hours ago     Up 37 seconds (healthy)   33060/tcp, 0.0.0.0:3305->3306/tcp   webstack-go-mysql
     eaaac671f0d5   redis:6.2.4                       "docker-entrypoint.s…"   6 hours ago     Up 37 seconds (healthy)   0.0.0.0:6378->6379/tcp              webstack-go-redis
     ```
- 3.配置项目，修改redis和mysql端口，以及如果mysql没有对应的库，需要先手动创建库
- http://ip:9999/install
+    3.配置项目，修改redis和mysql端口，以及如果mysql没有对应的库，需要先手动创建库
+ 
+     http://ip:9999/install
+     
 ## 效果图
 
 > **首页**
